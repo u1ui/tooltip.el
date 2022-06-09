@@ -19,9 +19,9 @@ customElements.define('u1-tooltip', class extends HTMLElement {
         let event = new CustomEvent('u1-tooltip-show', {
             bubbles: true,
             cancelable: true,
-            detail: {for: el}
+            detail: {tooltip: this}
         });
-        this.dispatchEvent(event);
+        el.dispatchEvent(event);
         if (event.defaultPrevented) return;
 
         this.style.willChange = 'opacity, visibility';
