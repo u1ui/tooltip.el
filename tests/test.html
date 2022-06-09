@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name=viewport content="width=device-width">
+    <script src="../../u1/tests/test-init.js" type=module></script>
 
     <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/base.css/full.css">
     <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/variables.min.css">
@@ -18,26 +19,61 @@
 <body>
 
 <section>
-    <div style="height:60vh" "spacer to scroll"></div>
 
-    <button aria-labeledby="tooltip1">
-
-        <div aria-labeledby="nested1"" id="nested" style="background:yellow; color:black">
-            nested
-            <u1-tooltip>
-                Nested test
-            </u1-tooltip>
-        </div>
-
-        save
-        <u1-tooltip>
-            Saved the file
-        </u1-tooltip>
-
+    <button>
+        focusable
+        <u1-tooltip tabindex=-1>Click on me and i will not disappear</u1-tooltip>
     </button>
 
-    <div style="height:100vh" "spacer to scroll"></div>
+    <button aria-labeledby="shared">shared1</button>
+    <button aria-labeledby="shared">shared2</button>
+    <u1-tooltip id=shared>Same tooltip for multiple elements</u1-tooltip>
 
+    <button>
+        <u1-tooltip>Saved the file</u1-tooltip>
+        save
+        <div aria-labeledby="nested1"" id="nested" style="background:black; display:inline">
+            <u1-tooltip>Nested test</u1-tooltip>
+            nested
+        </div>
+    </button>
+
+    <button>
+        ritch
+        <u1-tooltip tabindex="-1">
+            Super duper
+            <a href="#">more</a>
+        </u1-tooltip>
+    </button>
+
+    <button>
+        <u1-tooltip>
+            Longer text, Lorem Ispsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur consectetur, nisi nisl tincidunt nisi, eget porta nisl nisl euismod nisi.
+        </u1-tooltip>
+        long text
+    </button>
+
+    <br><br>
+
+    <label>
+        label
+        <input aria-labeledby="ttinp" value="input">
+        <u1-tooltip id="ttinp">label using aria-labeledby</u1-tooltip>
+    </label>
+
+    <style contenteditable>
+    u1-tooltip {
+        font-size:max(12px, .7rem);
+        --line-height: 1.4em;
+        padding:.5rem;
+        background:var(--color-text);
+        color:var(--color-bg);
+        border-radius:.2rem;
+    }
+    u1-tooltip a {
+        color:var(--color-light);
+    }
+    </style>
 
 
 </section>

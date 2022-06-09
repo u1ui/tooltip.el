@@ -1,26 +1,50 @@
 u1-tooltip {
     /* relevant */
-    display:none;
     opacity: 0;
+    visibility:hidden;
     position: absolute;
     z-index: 9999;
+    transition-property:opacity, visibility;
+
+    /* hide transition */
+    transition-duration:400ms;
+    transition-delay: 10ms;
 
     /* customisable */
+    pointer-events: none;
     padding: .5em .7em;
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
-    transform:translateY(0);
-    transition: .2s;
+    border:1px solid CanvasText; /* using no color (or currentColor) gets some strange small border! ff */
+    max-width:15rem;
 
     background: Canvas;
     color: CanvasText;
+
+    margin:1rem;
+}
+
+u1-tooltip[tabindex="-1"] {
+    pointer-events:auto;
+}
+
+
+u1-tooltip:focus-within,
+u1-tooltip:hover,
+u1-tooltip[open]
+{
+    /* show transition */
+    transition-duration:200ms;
+    transition-delay: 170ms;
+
+    visibility:visible;
+    opacity: 1;
 }
 
 
 /* css only fallback */
-:hover > u1-tooltip,
-:focus > u1-tooltip
+:hover > u1-tooltip:not([id]),
+:focus > u1-tooltip:not([id])
 {
-    margin-top:1.8rem;
-    display: block;
+    visibility:visible;
     opacity: 1;
 }
+/* */
