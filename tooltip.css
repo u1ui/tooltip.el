@@ -13,7 +13,7 @@ u1-tooltip {
     /* customisable */
     pointer-events: none;
     padding: .5em .7em;
-    border:1px solid CanvasText; /* using no color (or currentColor) gets some strange small border! ff */
+    border:1px solid CanvasText; /* currentColor bug in ff: https://jsfiddle.net/cdtonmzu/109/ */
     max-width:15rem;
 
     background: Canvas;
