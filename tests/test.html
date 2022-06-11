@@ -25,14 +25,14 @@
         <u1-tooltip tabindex=-1>Click on me and i will not disappear</u1-tooltip>
     </button>
 
-    <button aria-labeledby="shared">shared1</button>
-    <button aria-labeledby="shared">shared2</button>
+    <button aria-labelledby="shared">shared1</button>
+    <button aria-labelledby="shared">shared2</button>
     <u1-tooltip id=shared>Same tooltip for multiple elements</u1-tooltip>
 
     <button>
         <u1-tooltip>Saved the file</u1-tooltip>
         save
-        <div aria-labeledby="nested1"" id="nested" style="background:black; display:inline">
+        <div aria-labelledby="nested1"" id="nested" style="background:black; display:inline">
             <u1-tooltip>Nested test</u1-tooltip>
             nested
         </div>
@@ -56,22 +56,10 @@
 
     <br><br>
     
-
-    On a 
-    <em>
-        inline element
-        <u1-tooltip>
-            I am a em-element
-        </u1-tooltip>
-    </em>
-
-    
-    <br><br>
-
     <label>
         label
-        <input aria-labeledby="ttinp" value="input">
-        <u1-tooltip id="ttinp">tooltip using aria-labeledby</u1-tooltip>
+        <input aria-labelledby="ttinp" value="input">
+        <u1-tooltip id="ttinp">tooltip using aria-labelledby</u1-tooltip>
     </label>
 
     <style contenteditable>
@@ -86,20 +74,30 @@
     u1-tooltip a {
         color:var(--color-light);
     }
-
-u1-tooltip::after {
-    position:absolute;
-    pointer-events:none;
-    inset:-1em 0 auto 0;
-    margin:auto;
-    width:0;
-    border: .5em solid transparent;
-    border-bottom-color: var(--color-text);
-    content: "";
-}
-
-
+    /* arrow */
+    u1-tooltip::after {
+        position:absolute;
+        pointer-events:none;
+        inset:-1em 0 auto 0;
+        margin:auto;
+        width:0;
+        border: .5em solid transparent;
+        border-bottom-color: var(--color-text);
+        content: "";
+    }
     </style>
 
+
+    <ul>
+        <li><span aria-labelledby="dyn">Apple</span>
+        <li><span aria-labelledby="dyn">Banana</span>
+        <li><span aria-labelledby="dyn">Orange</span>
+    </ul>
+    <u1-tooltip id=dyn></u1-tooltip>            
+    <script>
+        dyn.addEventListener('u1-show', function(e) {
+            dyn.innerHTML = `This is a great ${e.detail.target.innerText}`;
+        });
+    </script>
 
 </section>
