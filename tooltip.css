@@ -5,6 +5,7 @@ u1-tooltip {
     position: absolute;
     z-index: 9999;
     transition-property:opacity, visibility;
+    margin:1rem;
 
     /* hide transition */
     transition-duration:400ms;
@@ -14,12 +15,9 @@ u1-tooltip {
     pointer-events: none;
     padding: .5em .7em;
     border:1px solid CanvasText; /* currentColor bug in ff: https://jsfiddle.net/cdtonmzu/109/ */
-    max-width:15rem;
-
+    max-width:14rem;
     background: Canvas;
     color: CanvasText;
-
-    margin:1rem;
 }
 
 u1-tooltip[tabindex="-1"] {
@@ -32,9 +30,8 @@ u1-tooltip:hover,
 u1-tooltip[open]
 {
     /* show transition */
-    transition-duration:200ms;
-    transition-delay: 170ms;
-
+    transition-duration:250ms;
+    transition-delay: 150ms;
     visibility:visible;
     opacity: 1;
 }
@@ -48,3 +45,17 @@ u1-tooltip[open]
     opacity: 1;
 }
 /* */
+
+
+/* arrow:
+u1-tooltip::after {
+    position:absolute;
+    pointer-events:none;
+    inset:-1em 0 auto 0;
+    margin:auto;
+    width:0;
+    border: .5em solid transparent;
+    border-bottom-color: var(--color-text);
+    content: "";
+}
+*/
