@@ -53,12 +53,25 @@
         long text
     </button>
 
+
+    <br><br>
+    
+
+    On a 
+    <em>
+        inline element
+        <u1-tooltip>
+            I am a em-element
+        </u1-tooltip>
+    </em>
+
+    
     <br><br>
 
     <label>
         label
         <input aria-labeledby="ttinp" value="input">
-        <u1-tooltip id="ttinp">label using aria-labeledby</u1-tooltip>
+        <u1-tooltip id="ttinp">tooltip using aria-labeledby</u1-tooltip>
     </label>
 
     <style contenteditable>
@@ -68,11 +81,24 @@
         padding:.5rem;
         background:var(--color-text);
         color:var(--color-bg);
-        border-radius:.2rem;
+        border-radius:.3rem;
     }
     u1-tooltip a {
         color:var(--color-light);
     }
+
+u1-tooltip::after {
+    position:absolute;
+    pointer-events:none;
+    inset:-1em 0 auto 0;
+    margin:auto;
+    width:0;
+    border: .5em solid transparent;
+    border-bottom-color: var(--color-text);
+    content: "";
+}
+
+
     </style>
 
 
