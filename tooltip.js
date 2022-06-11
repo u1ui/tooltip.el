@@ -8,22 +8,23 @@ customElements.define('u1-tooltip', class extends HTMLElement {
     connectedCallback() {
         if (!this.id) { // if no id is set, set one an make it the tooltip for its parent
             this.id = 'u1-tooltip-' + idCounter++;
-            this.parentNode.setAttribute('aria-labeledby', this.id);
+            this.parentNode.setAttribute('aria-labelledby', this.id);
         }
-
         const rootEl = document.body;
         this.parentNode !== rootEl && rootEl.append(this);
     }
-    showFor(el){
-
-        let event = new CustomEvent('u1-tooltip-show', {
-            bubbles: true,
-            cancelable: true,
-            detail: {tooltip: this}
-        });
+    _showFor(el){
+        let event = new CustomEvent('u1-tooltip-show', {bubbles: true, cancelable: true, detail: {tooltip: this} });
         el.dispatchEvent(event);
         if (event.defaultPrevented) return;
 
+        let sEvent = new CustomEvent('u1-show', {bubbles: true, cancelable: true, detail: {target: el} });
+        this.dispatchEvent(sEvent);
+        if (event.defaultPrevented) return;
+
+        return this.showFor(el);
+    }
+    showFor(el){
         this.style.willChange = 'opacity, visibility';
         this.setAttribute('open','');
 
@@ -49,20 +50,18 @@ document.addEventListener('mouseleave',checkOff,true);
 addEventListener('focusout',checkOff,true);
 
 function checkOn(e){
-    getTooltipForElement(e.target)?.showFor(e.target);
-    // const tooltip = getTooltipForElement(e.target);
-    // if (!tooltip) return;
-    // tooltip.showFor(e.target);
+    //getTooltipForElement(e.target)?._showFor(e.target);
+    const tooltip = getTooltipForElement(e.target);
+    tooltip && tooltip._showFor(e.target);
 }
 function checkOff(e){
-    getTooltipForElement(e.target)?.hide();
-    // const tooltip = getTooltipForElement(e.target);
-    // if (!tooltip) return;
-    // tooltip.hide();
+    //getTooltipForElement(e.target)?.hide();
+    const tooltip = getTooltipForElement(e.target);
+    tooltip && tooltip.hide();
 }
 
 function getTooltipForElement(el) {
-    const id = el.getAttribute('aria-labeledby') || el.getAttribute('aria-describedby');
+    const id = el.getAttribute('aria-labelledby') || el.getAttribute('aria-describedby');
     if (!id) return;
     const tooltip = document.getElementById(id);
     if (!tooltip || tooltip.tagName !== 'U1-TOOLTIP') return;
