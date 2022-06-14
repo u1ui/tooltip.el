@@ -53,14 +53,28 @@
         long text
     </button>
 
-
     <br><br>
-    
+
     <label>
         label
         <input aria-labelledby="ttinp" value="input">
         <u1-tooltip id="ttinp">tooltip using aria-labelledby</u1-tooltip>
     </label>
+
+    <br><br>
+
+    <ul>
+        <li><span aria-labelledby="dyn">Apple</span>
+        <li><span aria-labelledby="dyn">Banana</span>
+        <li><span aria-labelledby="dyn">Orange</span>
+    </ul>
+    <u1-tooltip id=dyn></u1-tooltip>
+    <script>
+        dyn.addEventListener('u1-show', function(e) {
+            dyn.innerHTML = `This is a great ${e.detail.target.innerText}`;
+        });
+    </script>
+
 
     <style contenteditable>
     u1-tooltip {
@@ -86,18 +100,5 @@
         content: "";
     }
     </style>
-
-
-    <ul>
-        <li><span aria-labelledby="dyn">Apple</span>
-        <li><span aria-labelledby="dyn">Banana</span>
-        <li><span aria-labelledby="dyn">Orange</span>
-    </ul>
-    <u1-tooltip id=dyn></u1-tooltip>            
-    <script>
-        dyn.addEventListener('u1-show', function(e) {
-            dyn.innerHTML = `This is a great ${e.detail.target.innerText}`;
-        });
-    </script>
 
 </section>
