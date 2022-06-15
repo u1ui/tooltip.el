@@ -1,9 +1,16 @@
+//import {Placer} from 'https://cdn.jsdelivr.net/gh/u1ui/Placer.js@x/Placer.js';
+import {Placer} from '../Placer.js/Placer.js';
 
 let idCounter = 0;
 
 customElements.define('u1-tooltip', class extends HTMLElement {
     constructor() {
         super();
+        this.placer = new Placer(this, {
+            x:'center',
+            y:'after',
+            margin:20,
+        });
     }
     connectedCallback() {
         if (!this.id) { // if no id is set, set one an make it the tooltip for its parent
@@ -13,6 +20,19 @@ customElements.define('u1-tooltip', class extends HTMLElement {
         const rootEl = document.body;
         this.parentNode !== rootEl && rootEl.append(this);
     }
+    static get observedAttributes() {
+        return ['position'];
+    }
+    attributeChangedCallback(name, oldValue, value) {
+        if (name === 'position') {
+            if (value === 'top')    this.placer.setOptions({y:'before',x:'center'});
+            if (value === 'bottom') this.placer.setOptions({y:'after',x:'center'});
+            if (value === 'left')   this.placer.setOptions({y:'center',x:'before'});
+            if (value === 'right')  this.placer.setOptions({y:'center',x:'after'});
+        }
+    }
+
+
     _showFor(el){
         let event = new CustomEvent('u1-tooltip-show', {bubbles: true, cancelable: true, detail: {tooltip: this} });
         el.dispatchEvent(event);
@@ -25,21 +45,15 @@ customElements.define('u1-tooltip', class extends HTMLElement {
         return this.showFor(el);
     }
     showFor(el){
-        this.style.willChange = 'opacity, visibility';
         this.setAttribute('open','');
-
-        // bottom
-        // todo z-index top
-        this.style.marginLeft = '0';
-        this.style.marginRight = '0';
-        this.style.marginBottom = '0';
-        const rect = el.getBoundingClientRect();
-        const elCenter = rect.left + rect.width / 2;
-        this.style.left = elCenter - this.offsetWidth/2 + scrollX + 'px';
-        this.style.top  = rect.bottom + scrollY + 'px';
+        console.log('place')
+        this.placer.toElement(el); // todo z-index top
+        this.setAttribute(':position-x', this.placer.positionX);
+        this.setAttribute(':position-y', this.placer.positionY);
     }
     hide(){
         this.removeAttribute('open');
+        //this.placer.unfollow();
     }
 });
 
@@ -50,13 +64,11 @@ document.addEventListener('mouseleave',checkOff,true);
 addEventListener('focusout',checkOff,true);
 
 function checkOn(e){
-    //getTooltipForElement(e.target)?._showFor(e.target);
-    const tooltip = getTooltipForElement(e.target);
+    const tooltip = getTooltipForElement(e.target); // todo: safari>13.3 optional chaining
     tooltip && tooltip._showFor(e.target);
 }
 function checkOff(e){
-    //getTooltipForElement(e.target)?.hide();
-    const tooltip = getTooltipForElement(e.target);
+    const tooltip = getTooltipForElement(e.target); // todo: safari>13.3 optional chaining
     tooltip && tooltip.hide();
 }
 

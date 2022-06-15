@@ -5,7 +5,6 @@ u1-tooltip {
     position: absolute;
     z-index: 9999;
     transition-property:opacity, visibility;
-    margin:1rem;
 
     /* hide transition */
     transition-duration:400ms;
@@ -27,8 +26,7 @@ u1-tooltip[tabindex="-1"] {
 
 u1-tooltip:focus-within,
 u1-tooltip:hover,
-u1-tooltip[open]
-{
+u1-tooltip[open] {
     /* show transition */
     transition-duration:250ms;
     transition-delay: 150ms;
@@ -39,8 +37,7 @@ u1-tooltip[open]
 
 /* css only fallback */
 :hover > u1-tooltip:not([id]),
-:focus > u1-tooltip:not([id])
-{
+:focus > u1-tooltip:not([id]) {
     visibility:visible;
     opacity: 1;
 }
@@ -49,13 +46,34 @@ u1-tooltip[open]
 
 /* arrow:
 u1-tooltip::after {
-    position:absolute;
-    pointer-events:none;
-    inset:-1em 0 auto 0;
-    margin:auto;
-    width:0;
-    border: .5em solid transparent;
-    border-bottom-color: var(--color-text);
+    --size:1em;
     content: "";
+    position:absolute;
+    transform:rotate(45deg);
+    width:var(--size);
+    height:var(--size);
+    background-color: inherit;
+    margin:auto;
+    z-index:-1;
+}
+u1-tooltip[\:position-x="after"]::after {
+    left:calc( var(--size) * -.5);
+}
+u1-tooltip[\:position-x="before"]::after {
+    right:calc( var(--size) * -.5);
+}
+u1-tooltip[\:position-x="center"]::after {
+    right:0;
+    left:0;
+}
+u1-tooltip[\:position-y="after"]::after {
+    top:calc( var(--size) * -.5);
+}
+u1-tooltip[\:position-y="before"]::after {
+    bottom:calc( var(--size) * -.5);
+}
+u1-tooltip[\:position-y="center"]::after {
+    top:0;
+    bottom:0;
 }
 */
