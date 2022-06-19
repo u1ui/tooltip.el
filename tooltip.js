@@ -32,7 +32,6 @@ customElements.define('u1-tooltip', class extends HTMLElement {
         }
     }
 
-
     _showFor(el){
         let event = new CustomEvent('u1-tooltip-show', {bubbles: true, cancelable: true, detail: {tooltip: this} });
         el.dispatchEvent(event);
@@ -46,7 +45,6 @@ customElements.define('u1-tooltip', class extends HTMLElement {
     }
     showFor(el){
         this.setAttribute('open','');
-        console.log('place')
         this.placer.toElement(el); // todo z-index top
         this.setAttribute(':position-x', this.placer.positionX);
         this.setAttribute(':position-y', this.placer.positionY);
