@@ -10,11 +10,6 @@ Tooltips
 </button>
 ```
 
-## Demos
-
-https://raw.githack.com/u1ui/tooltip.el/main/tests/minimal.html  
-https://raw.githack.com/u1ui/tooltip.el/main/tests/test.html
-
 ## Install
 
 ```html
@@ -22,10 +17,10 @@ https://raw.githack.com/u1ui/tooltip.el/main/tests/test.html
 <script src="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@1.0.1/tooltip.min.js" type=module>
 ```
 
-## Demo
+## Demos
 
-https://raw.githack.com/u1ui/tooltip.el/main/tests/minimal.html  
-https://raw.githack.com/u1ui/tooltip.el/main/tests/test.html  
+[minimal.html](https://raw.githack.com/u1ui/tooltip.el/main/tests/minimal.html)  
+[test.html](https://raw.githack.com/u1ui/tooltip.el/main/tests/test.html)  
 
 ## About
 
