@@ -10,6 +10,17 @@ Tooltips
 </button>
 ```
 
+```css
+u1-tooltip {
+    pointer-events:auto;
+    font-size:max(12px, .7rem);
+    --line-height: 1.4em;
+    background:#666;
+    color:#fff;
+    border-radius:.2rem;
+}
+```
+
 ## Install
 
 ```html
@@ -19,8 +30,8 @@ Tooltips
 
 ## Demos
 
-[minimal.html](https://raw.githack.com/u1ui/tooltip.el/main/tests/minimal.html)  
-[test.html](https://raw.githack.com/u1ui/tooltip.el/main/tests/test.html)  
+[minimal.html](http://gcdn.li/u1ui/tooltip.el@main/tests/minimal.html)  
+[test.html](http://gcdn.li/u1ui/tooltip.el@main/tests/test.html)  
 
 ## About
 
