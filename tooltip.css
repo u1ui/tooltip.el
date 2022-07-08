@@ -3,6 +3,8 @@ u1-tooltip {
     opacity: 0;
     visibility:hidden;
     position: absolute;
+    left: -9999px;
+    top: -9999px;
     z-index: 9999;
     transition-property:opacity, visibility;
 
