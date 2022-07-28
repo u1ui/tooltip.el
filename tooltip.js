@@ -71,6 +71,7 @@ function checkOff(e){
 }
 
 function getTooltipForElement(el) {
+    if (!el.getAttribute) return; // if document
     const id = el.getAttribute('aria-labelledby') || el.getAttribute('aria-describedby');
     if (!id) return;
     const tooltip = document.getElementById(id);
