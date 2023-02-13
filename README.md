@@ -24,8 +24,8 @@ u1-tooltip {
 ## Install
 
 ```html
-<link href="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@2.0.1/tooltip.min.css" rel=stylesheet>
-<script src="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@2.0.1/tooltip.min.js" type=module>
+<link href="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@x.x.x/tooltip.min.css" rel=stylesheet>
+<script src="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@x.x.x/tooltip.min.js" type=module>
 ```
 
 ## Demos
