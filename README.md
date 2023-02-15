@@ -21,6 +21,9 @@ u1-tooltip {
 }
 ```
 
+### Note
+Dont style the tooltip using anchestor selector! The tooltip element will move to the body element. Use classes or the style-attribute.
+
 ## Install
 
 ```html
