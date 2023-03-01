@@ -5,7 +5,7 @@ Tooltips
 
 ```html
 <button>
-    hover of focus
+    hover or focus
     <u1-tooltip>now you see me</u1-tooltip>
 </button>
 ```
@@ -20,9 +20,6 @@ u1-tooltip {
     border-radius:.2rem;
 }
 ```
-
-### Note
-Do not style tooltips using anchor selectors! The tooltip element will be moved to the body element. Use classes or the style attribute.
 
 ## Install
 
