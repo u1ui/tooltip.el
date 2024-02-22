@@ -1,7 +1,7 @@
 # &lt;u1-tooltip&gt; - element
 Tooltips
 
-## Ussage
+## Usage
 
 ```html
 <button>
@@ -25,7 +25,7 @@ u1-tooltip {
 
 ```html
 <link href="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@x.x.x/tooltip.min.css" rel=stylesheet>
-<script src="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@x.x.x/tooltip.min.js" type=module>
+<script src="https://cdn.jsdelivr.net/gh/u1ui/tooltip.el@x.x.x/tooltip.min.js" type=module></script>
 ```
 
 ## Demos
