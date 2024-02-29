@@ -1,5 +1,5 @@
-//import {Placer} from 'https://cdn.jsdelivr.net/gh/u1ui/Placer.js@3.6.0/Placer.js';
-import {Placer} from '../Placer.js@3.6.0/Placer.js';
+//import {Placer} from 'https://cdn.jsdelivr.net/gh/u1ui/Placer.js@4.0.0/Placer.js';
+import {Placer} from '../Placer.js@4.0.0/Placer.js';
 
 let idCounter = 0;
 
