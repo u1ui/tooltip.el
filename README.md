@@ -1,6 +1,14 @@
 # &lt;u1-tooltip&gt; - element
 Tooltips
 
+## Features
+
+- [x] hover or focus
+- [x] if it has `tabindex="-1"`, it will not disappear when hovered
+- [x] position: top, right, bottom, left
+- [x] will stay inside the viewport
+- [x] event "u1-tooltip-show" when shown
+
 ## Usage
 
 ```html
@@ -32,6 +40,9 @@ u1-tooltip {
 
 [minimal.html](http://gcdn.li/u1ui/tooltip.el@main/tests/minimal.html)  
 [test.html](http://gcdn.li/u1ui/tooltip.el@main/tests/test.html)  
+
+## Todo
+- popover when supported by browsers
 
 ## About
 
