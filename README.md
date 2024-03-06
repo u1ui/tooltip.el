@@ -42,7 +42,8 @@ u1-tooltip {
 [test.html](http://gcdn.li/u1ui/tooltip.el@main/tests/test.html)  
 
 ## Todo
-- popover when supported by browsers
+
+- popover when supported by browsers.
 
 ## About
 

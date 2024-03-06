@@ -19,16 +19,19 @@ u1-tooltip {
     max-width:14rem;
     background: Canvas;
     color: CanvasText;
+
+    /* popover *
+    margin: 0;
+    overflow: visible;
+    display: block;
+    /* */
 }
 
 u1-tooltip[tabindex="-1"] {
     pointer-events:auto;
 }
 
-
-u1-tooltip:focus-within,
-u1-tooltip:hover,
-u1-tooltip[open] {
+u1-tooltip:is(:focus-within, :hover, [open]) {
     /* show transition */
     transition-duration:250ms;
     transition-delay: 150ms;
@@ -38,10 +41,15 @@ u1-tooltip[open] {
 
 
 /* css only fallback */
-:hover > u1-tooltip:not([id]),
-:focus > u1-tooltip:not([id]) {
-    visibility:visible;
-    opacity: 1;
+u1-tooltip:not(:defined):not([id]) {
+    :hover > &,
+    :focus > & {
+        left:auto;
+        top:auto;
+        margin: 2rem 0;
+        visibility:visible;
+        opacity: 1;
+    }
 }
 /* */
 

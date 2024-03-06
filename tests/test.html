@@ -33,8 +33,8 @@
         <u1-tooltip tabindex=-1>Click on me and i will not disappear</u1-tooltip>
     </button>
 
-    <button aria-labelledby="shared">shared1</button>
-    <button aria-labelledby="shared">shared2</button>
+    <button aria-labelledby=shared>shared1</button>
+    <button aria-labelledby=shared>shared2</button>
     <u1-tooltip id=shared>Same tooltip for multiple elements</u1-tooltip>
 
     <button>
@@ -65,20 +65,20 @@
 
 
     <button style="margin-inline:auto; display:block">
-        <u1-tooltip position="top">Tooltip</u1-tooltip>
         position=top
+        <u1-tooltip position="top">Tooltip</u1-tooltip>
     </button>
     <button style="margin-inline:auto; display:block">
-        <u1-tooltip position="left">Tooltip</u1-tooltip>
         position=left
+        <u1-tooltip position="left">Tooltip</u1-tooltip>
     </button>
     <button style="margin-inline:auto; display:block">
-        <u1-tooltip position="right">Tooltip</u1-tooltip>
         position=right
+        <u1-tooltip position="right">Tooltip</u1-tooltip>
     </button>
     <button style="margin-inline:auto; display:block">
-        <u1-tooltip position="bottom">Tooltip</u1-tooltip>
         position=bottom
+        <u1-tooltip position="bottom">Tooltip</u1-tooltip>
     </button>
 
 
@@ -161,5 +161,21 @@
         }
         </style>
     </u1-code>
+
+
+    <button onclick="dialog1.showModal()">
+        Show dialog
+        <u1-tooltip>Test if tooltip works inside dialog</u1-tooltip>
+    </button>
+    <dialog id="dialog1">
+       <h1>Dialog</h1>
+        <button>
+            focus or hover me
+            <u1-tooltip position=right>Test if tooltip works inside dialog</u1-tooltip>
+        </button>
+        <br>
+        If tooltips are not using popover attribute,<br>
+        they can not be over dialog. <br>
+    </dialog>
 
 </section>
